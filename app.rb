@@ -1,9 +1,12 @@
-require 'rubygems'
 require 'sinatra'
-require 'tweet.rb'
+require_relative 'tweet.rb'
+
+# URL'/'でアクセス
 get '/' do
   'under construction'
 end
+
+# URL'/random_tweet'でアクセス
 get '/random_tweet' do
-  Tweet.new.random_tweet  # 動作チェックが終わったらコメントアウトすること
+  Tweet.new.random_tweet
 end
