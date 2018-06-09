@@ -8,10 +8,10 @@ class Tweet
       @text[row[0]] = row[1]
     end
     @client = Twitter::REST::Client.new do |config|
-      config.consumer_key       = ENV['TWITTER_CONSUMER_KEY']
-      config.consumer_secret    = ENV['TWITTER_CONSUMER_SECRET']
-      config.access_token        = ENV['TWITTER_ACCESS_TOKEN']
-      config.access_token_secret = ENV['TWITTER_ACCESS_TOKEN_SECRET']
+      config.consumer_key = 'xsM7nILONH7wgCxlgtN6UdjPo'
+      config.consumer_secret = 'QodZKmPx6WhWcb4zOj5F0f0X10Xym5vamaRhKtMEl8MJpGN7VQ'
+      config.access_token = '1005111898776350720-BNg1bhCR03JtJrW5QGhYyBnjSLxIrD'
+      config.access_token_secret = 'CKqb7CEiKGk6bVZ0tsGuIbQaQaiI7wZFmwQrg5kenFcEB'
     end
   end
   def random_tweet
