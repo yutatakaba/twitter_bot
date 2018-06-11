@@ -8,3 +8,4 @@ git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
 gem "sinatra", "1.4.7"
 gem "twitter", "6.2.0"
 gem "foreman"
+gem "tweetstream"
