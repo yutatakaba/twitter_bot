@@ -22,7 +22,7 @@ class Tweet
     end
   end
 
-  client_streaming.user do |object|
+  @client_streaming.user do |object|
     case object
     when Twitter::Streaming::Event
       if(object.name == "follow".to_sym) && (object.source.id != @bot62741785)
