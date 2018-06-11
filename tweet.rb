@@ -15,23 +15,24 @@ class Tweet
       config.access_token = '1005111898776350720-BNg1bhCR03JtJrW5QGhYyBnjSLxIrD'
       config.access_token_secret = 'CKqb7CEiKGk6bVZ0tsGuIbQaQaiI7wZFmwQrg5kenFcEB'
     end
-    TweetStream.configure do |config| #Streaming APIを用いる
-      config.consumer_key = 'xsM7nILONH7wgCxlgtN6UdjPo'
-      config.consumer_secret = 'QodZKmPx6WhWcb4zOj5F0f0X10Xym5vamaRhKtMEl8MJpGN7VQ'
-      config.access_token = '1005111898776350720-BNg1bhCR03JtJrW5QGhYyBnjSLxIrD'
-      config.access_token_secret = 'CKqb7CEiKGk6bVZ0tsGuIbQaQaiI7wZFmwQrg5kenFcEB'
-      config.auth_method = :oauth
-    end
-    end
-
-    @client_follow = TweetStream::Client.new
-
-
-    @client_follow.on_event(:follow) do |event|
-      fan = event[:source][:screen_name]
-      cli.follow(fan)
-    end
-    client.userstream
+  end
+    # TweetStream.configure do |config| #Streaming APIを用いる
+    #   config.consumer_key = 'xsM7nILONH7wgCxlgtN6UdjPo'
+    #   config.consumer_secret = 'QodZKmPx6WhWcb4zOj5F0f0X10Xym5vamaRhKtMEl8MJpGN7VQ'
+    #   config.access_token = '1005111898776350720-BNg1bhCR03JtJrW5QGhYyBnjSLxIrD'
+    #   config.access_token_secret = 'CKqb7CEiKGk6bVZ0tsGuIbQaQaiI7wZFmwQrg5kenFcEB'
+    #   config.auth_method = :oauth
+    # end
+    # end
+    #
+    # @client_follow = TweetStream::Client.new
+    #
+    #
+    # @client_follow.on_event(:follow) do |event|
+    #   fan = event[:source][:screen_name]
+    #   cli.follow(fan)
+    # end
+    # client.userstream
   
   def random_tweet
     cont_id = rand(1..10).to_s
