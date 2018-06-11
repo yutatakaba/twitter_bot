@@ -1,4 +1,5 @@
 require 'twitter'
+require 'tweetstream'
 require 'csv'
 require 'json'
 require 'open-uri'
@@ -14,27 +15,22 @@ class Tweet
       config.access_token = '1005111898776350720-BNg1bhCR03JtJrW5QGhYyBnjSLxIrD'
       config.access_token_secret = 'CKqb7CEiKGk6bVZ0tsGuIbQaQaiI7wZFmwQrg5kenFcEB'
     end
-    @client_streaming = Twitter::Streaming::Client.new do |config|
+    TweetStream.configure do |config| #Streaming APIを用いる
       config.consumer_key = 'xsM7nILONH7wgCxlgtN6UdjPo'
       config.consumer_secret = 'QodZKmPx6WhWcb4zOj5F0f0X10Xym5vamaRhKtMEl8MJpGN7VQ'
       config.access_token = '1005111898776350720-BNg1bhCR03JtJrW5QGhYyBnjSLxIrD'
       config.access_token_secret = 'CKqb7CEiKGk6bVZ0tsGuIbQaQaiI7wZFmwQrg5kenFcEB'
+      config.auth_method = :oauth
     end
-  end
 
-  @client_streaming.user do |object|
-    case object
-    when Twitter::Streaming::Event
-      if(object.name == "follow".to_sym) && (object.source.id != @bot62741785)
-        regex = /[\p{Han}\p{Hiragana}\p{Katakana}，．、。ー・]+/
-        profile = client.user(object.source.id).description
-        japanese_arr = profile.scan(regex)
-        unless (japanese_arr.empty?)
-          client.follow(object.source.id)
-        end
-      end
+    @client_follow = TweetStream::Client.new
+
+
+    @client_follow.on_event(:follow) do |event|
+      fan = event[:source][:screen_name]
+      cli.follow(fan)
     end
-  end
+    client.userstream
   
   def random_tweet
     cont_id = rand(1..10).to_s
