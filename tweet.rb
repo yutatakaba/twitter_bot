@@ -9,16 +9,16 @@ class Tweet
     @text = eval(File.read('date.rb'))
     @photo = eval(File.read('photo.rb'))
     @client = Twitter::REST::Client.new do |config|
-      config.consumer_key = ''
-      config.consumer_secret = ''
-      config.access_token = ''
-      config.access_token_secret = ''
+      config.consumer_key = 'xsM7nILONH7wgCxlgtN6UdjPo'
+      config.consumer_secret = 'QodZKmPx6WhWcb4zOj5F0f0X10Xym5vamaRhKtMEl8MJpGN7VQ'
+      config.access_token = '1005111898776350720-BNg1bhCR03JtJrW5QGhYyBnjSLxIrD'
+      config.access_token_secret = 'CKqb7CEiKGk6bVZ0tsGuIbQaQaiI7wZFmwQrg5kenFcEB'
     end
     @client_streaming = Twitter::Streaming::Client.new do |config|
-      config.consumer_key = ''
-      config.consumer_secret = ''
-      config.access_token = ''
-      config.access_token_secret = ''
+      config.consumer_key = 'xsM7nILONH7wgCxlgtN6UdjPo'
+      config.consumer_secret = 'QodZKmPx6WhWcb4zOj5F0f0X10Xym5vamaRhKtMEl8MJpGN7VQ'
+      config.access_token = '1005111898776350720-BNg1bhCR03JtJrW5QGhYyBnjSLxIrD'
+      config.access_token_secret = 'CKqb7CEiKGk6bVZ0tsGuIbQaQaiI7wZFmwQrg5kenFcEB'
     end
   end
 
