@@ -16,7 +16,7 @@ class Tweet
     end
   end
   def random_tweet
-    cont_id = rand(1..1).to_s
+    cont_id = rand(1..10).to_s
     tweet = @text[cont_id]
     photo = open(@photo[cont_id])
     puts tweet,cont_id
