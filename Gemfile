@@ -1,6 +1,10 @@
-source 'https://rubygems.org'    # gemを探しに行く場所
-ruby '2.4.0'                     # rubyのバージョンを指定
+# frozen_string_literal: true
 
-gem 'sinatra', '1.4.7'
-gem 'twitter', '5.16.0'
-gem 'foreman'
+source "https://rubygems.org"
+
+git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
+
+# gem "rails"
+gem "sinatra", "1.4.7"
+gem "twitter", "6.2.0"
+gem "foreman"
