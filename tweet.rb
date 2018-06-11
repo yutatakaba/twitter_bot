@@ -1,30 +1,31 @@
 require 'twitter'
 require 'csv'
 require 'json'
+require 'open-uri'
 
 
 class Tweet
   def initialize
     @text = eval(File.read('date.rb'))
+    @photo = eval(File.read('photo.rb'))
     @client = Twitter::REST::Client.new do |config|
-      config.consumer_key = ''
-      config.consumer_secret = ''
-      config.access_token = ''
-      config.access_token_secret = ''
+      config.consumer_key = 'xsM7nILONH7wgCxlgtN6UdjPo'
+      config.consumer_secret = 'QodZKmPx6WhWcb4zOj5F0f0X10Xym5vamaRhKtMEl8MJpGN7VQ'
+      config.access_token = '1005111898776350720-BNg1bhCR03JtJrW5QGhYyBnjSLxIrD'
+      config.access_token_secret = 'CKqb7CEiKGk6bVZ0tsGuIbQaQaiI7wZFmwQrg5kenFcEB'
     end
   end
   def random_tweet
     cont_id = rand(1..1).to_s
-    tweet = @text['1']
+    tweet = @text[cont_id]
+    photo = open(@photo[cont_id])
     puts tweet,cont_id
-    up_data(tweet,cont_id)
+    up_data(tweet,photo)
   end
 
-  def up_data(tweet,cont_id)
+  def up_data(tweet,photo)
     begin
-      photo_path = "photo/gekikara" + cont_id + ".jpg"
-      image_2 = open(photo_path)
-      @client.update_with_media(tweet,image_2)
+      @client.update_with_media(tweet,photo)
     rescue => e
       nil
     end
