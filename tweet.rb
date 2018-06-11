@@ -22,6 +22,7 @@ class Tweet
       config.access_token_secret = 'CKqb7CEiKGk6bVZ0tsGuIbQaQaiI7wZFmwQrg5kenFcEB'
       config.auth_method = :oauth
     end
+    end
 
     @client_follow = TweetStream::Client.new
 
